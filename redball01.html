@@ -4,14 +4,42 @@
 <script src="http://lrn.icstars.org/redball.js">
 </script>
 <script>
-function sayHello()
+function moveleft()
+{
+ redball.left= redball.left-5;
+}
+function mysayHello()
 {
 alert("Hello Olumide Ojo");
+}
+function moveright()
+{
+ redball.left= redball.left+5;
+}
+function moveup()
+{
+ redball.top= redball.top-5;
+}
+function movedown()
+{
+ redball.top= redball.top+5;
+}
+function movesquare()
+{
+ redball.top= redball.top+5;
+ redball.top= redball.top+5;
+ redball.top= redball.top-5;
+ redball.top= redball.top-5;
 }
  </script>
 </head>
 <body>
 <button onclick="mysayHello();">HelloWorld</button>
+<button onclick="moveleft();">MoveLeft</button>
+<button onclick="moveright();">MoveRight</button>
+<button onclick="moveup();">MoveUp</button>
+<button onclick="movedown();">MoveDown</button>
+<button onclick="movesquare();">MoveSquare</button>
 <img src="redball.jpg" id="redball" />
 </body>
 </html>
