@@ -26,7 +26,7 @@ function Ball(cssid)
 				{
 				var position=$(cssid).offset();
 					console.log("top "+position.top);
-					position.top=position.left+20;
+					position.top=position.top+20;
 					$(cssid).offset(position);	
 				}
 				this.moveup=function ()
