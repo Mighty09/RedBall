@@ -1,0 +1,326 @@
+<html>
+<title>Redball Midterm</title>
+<head>
+<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<style>
+#redball{
+	position:absolute;
+	top:100px;
+	left:280px;}
+
+#orangeball{
+	position:absolute;
+	left:500px;
+	top:300px}
+
+#blueball{
+	position:absolute;
+	top:100px;
+	left:500px;}	
+
+#yellowball{
+	position:absolute;
+	top:300px;
+	left:280px}	
+
+
+table,tr,td{
+border:1px solid black;}
+
+</style>
+<!--  $("#ruarrow").click(function(){ 
+   redball.moveupright();
+});-->
+
+<script>
+function ball(cssid)
+{	
+	this.moveright=function()
+	{
+		var position=$(cssid).offset();
+		console.log("left "+position.left);
+		console.log("top "+position.top);
+		position.left=position.left+20
+		$(cssid).offset(position);
+	}
+	this.movedown=function()
+	{
+		var position=$(cssid).offset();
+		console.log("top "+position.top);
+		position.top=position.top+20
+		$(cssid).offset(position);
+	}
+	this.moveleft=function()
+	{
+		var position=$(cssid).offset();
+		console.log("left "+position.left);
+		position.left=position.left-20
+		$(cssid).offset(position);
+	}
+	this.moveup=function()
+	{
+		var position=$(cssid).offset();
+		console.log("top "+position.top);
+		position.top=position.top-20
+		$(cssid).offset(position);
+	}
+	this.moveupleft=function()
+	{
+		var position=$(cssid).offset();
+		console.log("top "+position.top);
+		position.top=position.top-20
+		position.left=position.left-20
+		$(cssid).offset(position);
+	}
+	this.moveupright=function()
+	{
+		var position=$(cssid).offset();
+		console.log("top "+position.top);
+		position.top=position.top-20
+		position.left=position.left+20
+		$(cssid).offset(position);
+	}
+	this.movedownleft=function()
+	{
+		var position=$(cssid).offset();
+		console.log("top "+position.top);
+		position.top=position.top+20
+		position.left=position.left-20
+		$(cssid).offset(position);
+	}
+	this.movedownright=function()
+	{
+		var position=$(cssid).offset();
+		console.log("top "+position.top);
+		position.top=position.top+20
+		position.left=position.left+20
+		$(cssid).offset(position);
+	}
+}
+
+var redball=new ball("#redball");
+var orangeball=new ball("#orangeball");
+var blueball=new ball("#blueball");
+var yellowball=new ball("#yellowball");
+
+</script>
+
+
+</head>
+
+<body>
+
+<img src="redball.jpg" id="redball" class="ball"/>
+<img src="orangeball.jpg" id="orangeball" class="ball"/>
+<img src="blueball.jpg" id="blueball" class="ball"/>
+<img src="yellowball.jpg" id="yellowball" class="ball"/>
+
+
+<table align="left" id="tbl1" class="table">
+	<tr>
+		<td><img src="luarrow.jpg" id="gluarrow"/></td>
+		<td><img src="uarrow.jpg" id="guarrow"/></td>
+		<td><img src="ruarrow.jpg" id="gruarrow"/></td>
+	</tr>
+	<tr>
+		<td><img src="larrow.jpg" id="glarrow"/></td>
+		<td>arrow</td>
+		<td><img src= "rarrow.jpg" id="grarrow"/></td>
+	</tr>
+	<tr>
+		<td><img src="ldarrow.jpg" id="gldarrow"/></td>
+		<td><img src="darrow.jpg" id="gdarrow"/></td>
+		<td><img src="rdarrow.jpg" id="grdarrow"/></td>
+	</tr>
+</table>
+<script>
+  $("#gruarrow").click(function(){ 
+   redball.moveupright();
+});
+
+ $("#guarrow").click(function(){ 
+  redball.moveup();
+});
+
+ $("#gluarrow").click(function(){ 
+   redball.moveupleft();
+});
+ 
+ $("#grarrow").click(function(){ 
+   redball.moveright();
+});
+
+ $("#glarrow").click(function(){ 
+   redball.moveleft();
+});
+
+ $("#grdarrow").click(function(){ 
+   redball.movedownright();
+});
+
+ $("#gdarrow").click(function(){ 
+   redball.movedown();
+});
+
+ $("#gldarrow").click(function(){ 
+   redball.movedownleft();
+});
+
+</script>
+
+<table align="right" id="tbl2" class="table">
+	<tr>
+		<td><img src="luarrow.jpg" id="bluarrow"/></td>
+		<td><img src="uarrow.jpg" id="buarrow"/></td>
+		<td><img src="ruarrow.jpg" id="bruarrow"/></td>
+	</tr>
+	<tr>
+		<td><img src="larrow.jpg" id="blarrow"/></td>
+		<td>arrow</td>
+		<td><img src= "rarrow.jpg" id="brarrow"/></td>
+	</tr>
+	<tr>
+		<td><img src="ldarrow.jpg" id="bldarrow"/></td>
+		<td><img src="darrow.jpg" id="bdarrow"/></td>
+		<td><img src="rdarrow.jpg" id="brdarrow"/></td>
+	</tr>
+</table>
+<script>
+  $("#bruarrow").click(function(){ 
+   blueball.moveupright();
+});
+
+ $("#buarrow").click(function(){ 
+  blueball.moveup();
+});
+
+ $("#bluarrow").click(function(){ 
+   blueball.moveupleft();
+});
+ 
+ $("#brarrow").click(function(){ 
+   blueball.moveright();
+});
+
+ $("#blarrow").click(function(){ 
+   blueball.moveleft();
+});
+
+ $("#brdarrow").click(function(){ 
+   blueball.movedownright();
+});
+
+ $("#bdarrow").click(function(){ 
+   blueball.movedown();
+});
+
+ $("#bldarrow").click(function(){ 
+   blueball.movedownleft();
+});
+</script>
+
+<table align="left" id="tbl3" class="table" style="margin-top:500px;">
+	<tr>
+		<td><img src="luarrow.jpg" id="oluarrow"/></td>
+		<td><img src="uarrow.jpg" id="ouarrow"/></td>
+		<td><img src="ruarrow.jpg" id="oruarrow"/></td>
+	</tr>
+	<tr>
+		<td><img src="larrow.jpg" id="olarrow"/></td>
+		<td>arrow</td>
+		<td><img src= "rarrow.jpg" id="orarrow"/></td>
+	</tr>
+	<tr>
+		<td><img src="ldarrow.jpg" id="oldarrow"/></td>
+		<td><img src="darrow.jpg" id="odarrow"/></td>
+		<td><img src="rdarrow.jpg" id="ordarrow"/></td>
+	</tr>
+</table>
+<script>
+  $("#oruarrow").click(function(){ 
+   yellowball.moveupright();
+});
+
+ $("#ouarrow").click(function(){ 
+  yellowball.moveup();
+});
+
+ $("#oluarrow").click(function(){ 
+   yellowball.moveupleft();
+});
+ 
+ $("#orarrow").click(function(){ 
+   yellowball.moveright();
+});
+
+ $("#olarrow").click(function(){ 
+   yellowball.moveleft();
+});
+
+ $("#ordarrow").click(function(){ 
+   yellowball.movedownright();
+});
+
+ $("#odarrow").click(function(){ 
+   yellowball.movedown();
+});
+
+ $("#oldarrow").click(function(){ 
+   yellowball.movedownleft();
+});
+</script>
+
+<table align="right" id="tbl4" class="table" style="margin-top:500px; margin-left:500px;">
+	<tr>
+		<td><img src="luarrow.jpg" id="pluarrow"/></td>
+		<td><img src="uarrow.jpg" id="puarrow"/></td>
+		<td><img src="ruarrow.jpg" id="pruarrow"/></td>
+	</tr>
+	<tr>
+		<td><img src="larrow.jpg" id="plarrow"/></td>
+		<td>arrow</td>
+		<td><img src= "rarrow.jpg" id="prarrow"/></td>
+	</tr>
+	<tr>
+		<td><img src="ldarrow.jpg" id="pldarrow"/></td>
+		<td><img src="darrow.jpg" id="pdarrow"/></td>
+		<td><img src="rdarrow.jpg" id="prdarrow"/></td>
+	</tr>
+</table>
+<script>
+  $("#pruarrow").click(function(){ 
+   orangeball.moveupright();
+});
+
+ $("#puarrow").click(function(){ 
+  orangeball.moveup();
+});
+
+ $("#pluarrow").click(function(){ 
+   orangeball.moveupleft();
+});
+ 
+ $("#prarrow").click(function(){ 
+   orangeball.moveright();
+});
+
+ $("#plarrow").click(function(){ 
+   orangeball.moveleft();
+});
+
+ $("#prdarrow").click(function(){ 
+   orangeball.movedownright();
+});
+
+ $("#pdarrow").click(function(){ 
+   orangeball.movedown();
+});
+
+ $("#pldarrow").click(function(){ 
+   orangeball.movedownleft();
+});
+</script>
+
+</body>
+</html>
