@@ -1,0 +1,26 @@
+1.Insert  WallPicture into Redballmoving code
+2.Assign values of Wall Right, Wall Left, Wall Top and Wall Bottom
+3. Given Blueball moveright 
+4.Check if Ball Right is greater than Wall Left
+5.If Yes then stop. 
+6.If No then keep moving right 
+7. Go back to Step 3
+
+8.Assign a  stop value for Orangeballl
+9. Check when moving right and moving up
+10 Orangeball move right by certain value
+11.Check if Ball Right is greater than non function right value
+12.If Yes then stop and move up 
+13.If No then keep moving right  
+14.Go back to Step 11
+
+15.Check if the Ball Top is greater than non function top value
+16.If it is  Yes then stop and move left 
+17.If it is no keep moving left  
+18.Go back to step 15.
+
+19.Check if Ball Left is greater than Wall Right. 
+20. If yes then stop.
+21.If no then keep moving left .
+22.Go back to step 19
+
