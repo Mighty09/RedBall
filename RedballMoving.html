@@ -24,6 +24,15 @@
 	top:300px;
 	left:280px}	
 
+#wall{
+		position:absolute;
+		height: 200px;
+		width: 10px;
+		background-color: blue;
+		top: 180px;
+		left: 1000px;}
+
+
 
 table,tr,td{
 border:1px solid black;}
@@ -36,65 +45,101 @@ border:1px solid black;}
 <script>
 function ball(cssid)
 {	
+	this.checkwallhit=function()
+	{
+		var hit = false;
+
+		var ballposition=$(cssid).offset();
+		var ballwidth=$(cssid).width();
+		var ballheight=$(cssid).height();
+		var ballleft=ballposition.left;
+		var balltop=ballposition.top;
+		var ballright=ballleft+ballwidth;
+		var ballbottom=balltop+ballheight;
+
+		var wallposition=$("#wall").offset();
+		var wallwidth=$("#wall").width();
+		var wallheight=$("#wall").height();
+		var wallleft=wallposition.left;
+		var walltop=wallposition.top;
+		var wallright=wallleft+wallwidth;
+		var wallbottom=walltop+wallheight;
+
+		if (ballright > wallleft && 
+			balltop < wallbottom &&
+			ballbottom > walltop &&
+			ballleft < wallright){
+			hit = true;}
+		 return hit;
+	}
+		
+	
 	this.moveright=function()
 	{
+		var nohits = this.checkwallhit();
 		var position=$(cssid).offset();
 		console.log("left "+position.left);
 		console.log("top "+position.top);
-		position.left=position.left+20
-		$(cssid).offset(position);
-	}
+		if(nohits == false){position.left=position.left+20;}
+		else{console.log("hit");}
+		$(cssid).offset(position);}
+
+
 	this.movedown=function()
 	{
+		var nohits=this.checkwallhit();
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
-		position.top=position.top+20
+		if(nothits == false){position.top=position.top+20}
+		else{position.top=position.top-20;}
 		$(cssid).offset(position);
 	}
 	this.moveleft=function()
 	{
 		var position=$(cssid).offset();
 		console.log("left "+position.left);
-		position.left=position.left-20
+		if(nothits == false){position.left=position.left-20}
+		else{position.left=position.left+20;}
 		$(cssid).offset(position);
 	}
 	this.moveup=function()
 	{
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
-		position.top=position.top-20
+		if(nothits == false){position.top=position.top-20}
+		else{position.top=position.top+20;}
 		$(cssid).offset(position);
 	}
 	this.moveupleft=function()
 	{
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
-		position.top=position.top-20
-		position.left=position.left-20
+		if(nothits == false){position.top=position.top-20}
+		else{position.left=position.left-20;}
 		$(cssid).offset(position);
 	}
 	this.moveupright=function()
 	{
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
-		position.top=position.top-20
-		position.left=position.left+20
+		if(nothits == false){position.top=position.top-20}
+		else{position.left=position.left+20;}
 		$(cssid).offset(position);
 	}
 	this.movedownleft=function()
 	{
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
-		position.top=position.top+20
-		position.left=position.left-20
+		if(nothits == false){position.top=position.top+20}
+		else{position.left=position.left-20;}
 		$(cssid).offset(position);
 	}
 	this.movedownright=function()
 	{
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
-		position.top=position.top+20
-		position.left=position.left+20
+		if(nothits == false){position.top=position.top+20}
+		else{position.left=position.left+20;}
 		$(cssid).offset(position);
 	}
 }
@@ -104,35 +149,14 @@ var orangeball=new ball("#orangeball");
 var blueball=new ball("#blueball");
 var yellowball=new ball("#yellowball");
 
-function add(num1,num2)
-{
-	return num1+num2;
-
-
-}
-
- function subtract(num1,num2)
- { 
- 	return num1-num2;
-
- }
-
- function multiply(num1,num2)
- {
- 	return num1*num2;
-
-  }
-   
-   function checkwallhit 
-   {
-
-   }
 </script>
 
 
 </head>
 
 <body>
+
+<div id="wall"></div>
 
 <img src="redball.jpg" id="redball" class="ball"/>
 <img src="orangeball.jpg" id="orangeball" class="ball"/>
