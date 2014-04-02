@@ -90,56 +90,57 @@ function ball(cssid)
 		var nohits=this.checkwallhit();
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
-		if(nothits == false){position.top=position.top+20}
-		else{position.top=position.top-20;}
+		if(nohits == false){position.top=position.top+20}
+		else{console.log("hit");}
 		$(cssid).offset(position);
 	}
 	this.moveleft=function()
-	{
+	{	var nohits=this.checkwallhit();
 		var position=$(cssid).offset();
 		console.log("left "+position.left);
-		if(nothits == false){position.left=position.left-20}
-		else{position.left=position.left+20;}
+		if(nohits == false){position.left=position.left-20}
+		else{console.log("hit");}
 		$(cssid).offset(position);
 	}
 	this.moveup=function()
 	{
+		var nohits=this.checkwallhit();
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
-		if(nothits == false){position.top=position.top-20}
-		else{position.top=position.top+20;}
+		if(nohits == false){position.top=position.top-20}
+		else{console.log("hit");}
 		$(cssid).offset(position);
 	}
 	this.moveupleft=function()
 	{
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
-		if(nothits == false){position.top=position.top-20}
-		else{position.left=position.left-20;}
+		position.top=position.top-20;
+		position.left=position.left-20;
 		$(cssid).offset(position);
 	}
 	this.moveupright=function()
 	{
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
-		if(nothits == false){position.top=position.top-20}
-		else{position.left=position.left+20;}
+		position.top=position.top-20;
+		position.left=position.left+20;
 		$(cssid).offset(position);
 	}
 	this.movedownleft=function()
 	{
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
-		if(nothits == false){position.top=position.top+20}
-		else{position.left=position.left-20;}
+		position.top=position.top+20;
+		position.left=position.left-20;
 		$(cssid).offset(position);
 	}
 	this.movedownright=function()
 	{
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
-		if(nothits == false){position.top=position.top+20}
-		else{position.left=position.left+20;}
+		position.top=position.top+20;
+		position.left=position.left+20;
 		$(cssid).offset(position);
 	}
 }
