@@ -81,7 +81,7 @@ function ball(cssid)
 		console.log("left "+position.left);
 		console.log("top "+position.top);
 		if(nohits == false){position.left=position.left+20;}
-		else{console.log("hit");}
+		else{position.left=position.left-20;}
 		$(cssid).offset(position);}
 
 
@@ -91,7 +91,7 @@ function ball(cssid)
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
 		if(nohits == false){position.top=position.top+20}
-		else{console.log("hit");}
+		else{position.top=position.top-20;}
 		$(cssid).offset(position);
 	}
 	this.moveleft=function()
@@ -99,7 +99,7 @@ function ball(cssid)
 		var position=$(cssid).offset();
 		console.log("left "+position.left);
 		if(nohits == false){position.left=position.left-20}
-		else{console.log("hit");}
+		else{position.left=position.left+20}
 		$(cssid).offset(position);
 	}
 	this.moveup=function()
@@ -107,40 +107,52 @@ function ball(cssid)
 		var nohits=this.checkwallhit();
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
-		if(nohits == false){position.top=position.top-20}
-		else{console.log("hit");}
+		if(nohits == false){position.top=position.top-20;}
+		else{position.top=position.top+20;}
 		$(cssid).offset(position);
 	}
 	this.moveupleft=function()
-	{
+	{	var nohits=this.checkwallhit();
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
-		position.top=position.top-20;
-		position.left=position.left-20;
+		console.log("left "+position.left);
+		if(nohits == false){position.top=position.top-20
+		position.left=position.left-20;}
+		else{position.top=position.top+20
+		position.left=position.left+20;}
 		$(cssid).offset(position);
-	}
+	} 
 	this.moveupright=function()
-	{
+	{   var nohits=this.checkwallhit();
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
-		position.top=position.top-20;
-		position.left=position.left+20;
+		console.log("left "+position.left);
+		if(nohits == false){position.top=position.top-20
+		position.left=position.left+20;}
+		else{position.top=position.top+20
+			position.left=position.left-20;}
 		$(cssid).offset(position);
 	}
 	this.movedownleft=function()
-	{
+	{   var nohits=this.checkwallhit();
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
-		position.top=position.top+20;
-		position.left=position.left-20;
+		console.log("left "+position.left);
+		if(nohits == false){position.top=position.top+20
+		position.left=position.left-20;}
+		else{position.top=position.top-20
+			 position.left=position.left+20;}
 		$(cssid).offset(position);
 	}
 	this.movedownright=function()
-	{
+	{   var nohits=this.checkwallhit();
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
-		position.top=position.top+20;
-		position.left=position.left+20;
+		console.log("left "+position.left);
+		if(nohits == false){position.top=position.top+20
+		position.left=position.left+20;}
+		else{position.top=position.top-20
+			position.left=position.left-20;}
 		$(cssid).offset(position);
 	}
 }
