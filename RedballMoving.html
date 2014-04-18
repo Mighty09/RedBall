@@ -4,7 +4,11 @@
 <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <style>
-#redball{
+#scores{
+	position:absolute;
+	left: 500px;}
+
+	#redball{
 	position:absolute;
 	top:100px;
 	left:280px;}
@@ -32,6 +36,14 @@
 		top: 180px;
 		left: 1000px;}
 
+#tbl3{
+	position:absolute;
+	top:480px;}	
+
+#tbl4{
+	position:absolute;
+	top:480px;
+	left:1100px;}
 
 
 table,tr,td{
@@ -44,7 +56,7 @@ border:1px solid black;}
 
 <script>
 function ball(cssid)
-{	
+{	this.hvalue=0;
 	this.checkwallhit=function()
 	{
 		var hit = false;
@@ -81,7 +93,12 @@ function ball(cssid)
 		console.log("left "+position.left);
 		console.log("top "+position.top);
 		if(nohits == false){position.left=position.left+20;}
-		else{position.left=position.left-20;}
+		else{position.left=position.left-20;
+		scores=scores+this.hvalue;
+		$("#scores").html(scores);
+		console.log("scores "+scores);
+			console.log("hit");}
+
 		$(cssid).offset(position);}
 
 
@@ -91,7 +108,11 @@ function ball(cssid)
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
 		if(nohits == false){position.top=position.top+20}
-		else{position.top=position.top-20;}
+		else{position.top=position.top-20;
+	    scores=scores+this.hvalue;
+		$("#scores").html(scores);
+		console.log("scores "+scores);
+			console.log("hit");}
 		$(cssid).offset(position);
 	}
 	this.moveleft=function()
@@ -99,7 +120,12 @@ function ball(cssid)
 		var position=$(cssid).offset();
 		console.log("left "+position.left);
 		if(nohits == false){position.left=position.left-20}
-		else{position.left=position.left+20}
+		else{position.left=position.left+20;
+		scores=scores+this.hvalue;
+		$("#scores").html(scores);
+		console.log("scores "+scores);
+			console.log("hit");}
+
 		$(cssid).offset(position);
 	}
 	this.moveup=function()
@@ -108,7 +134,12 @@ function ball(cssid)
 		var position=$(cssid).offset();
 		console.log("top "+position.top);
 		if(nohits == false){position.top=position.top-20;}
-		else{position.top=position.top+20;}
+		else{position.top=position.top+20;
+		scores=scores+this.hvalue;
+		$("#scores").html(scores);
+		console.log("scores "+scores);
+			console.log("hit");}
+
 		$(cssid).offset(position);
 	}
 	this.moveupleft=function()
@@ -119,7 +150,11 @@ function ball(cssid)
 		if(nohits == false){position.top=position.top-20
 		position.left=position.left-20;}
 		else{position.top=position.top+20
-		position.left=position.left+20;}
+		position.left=position.left+20;
+		scores=scores+this.hvalue;
+		$("#scores").html(scores);
+		console.log("scores "+scores);
+			console.log("hit");}
 		$(cssid).offset(position);
 	} 
 	this.moveupright=function()
@@ -130,7 +165,11 @@ function ball(cssid)
 		if(nohits == false){position.top=position.top-20
 		position.left=position.left+20;}
 		else{position.top=position.top+20
-			position.left=position.left-20;}
+			position.left=position.left-20;
+			scores=scores+this.hvalue;
+		$("#scores").html(scores);
+		console.log("scores "+scores);
+			console.log("hit");}
 		$(cssid).offset(position);
 	}
 	this.movedownleft=function()
@@ -141,7 +180,11 @@ function ball(cssid)
 		if(nohits == false){position.top=position.top+20
 		position.left=position.left-20;}
 		else{position.top=position.top-20
-			 position.left=position.left+20;}
+			 position.left=position.left+20;
+			 scores=scores+this.hvalue;
+		$("#scores").html(scores);
+		console.log("scores "+scores);
+			console.log("hit");}
 		$(cssid).offset(position);
 	}
 	this.movedownright=function()
@@ -152,15 +195,20 @@ function ball(cssid)
 		if(nohits == false){position.top=position.top+20
 		position.left=position.left+20;}
 		else{position.top=position.top-20
-			position.left=position.left-20;}
+			position.left=position.left-20;
+			scores=scores+this.hvalue;
+		$("#scores").html(scores);
+		console.log("scores "+scores);
+			console.log("hit");}
+
 		$(cssid).offset(position);
 	}
 }
-
-var redball=new ball("#redball");
-var orangeball=new ball("#orangeball");
-var blueball=new ball("#blueball");
-var yellowball=new ball("#yellowball");
+var scores=0;
+var redball=new ball("#redball");redball.hvalue=10;
+var orangeball=new ball("#orangeball");orangeball.hvalue=20;
+var blueball=new ball("#blueball");blueball.hvalue=5;
+var yellowball=new ball("#yellowball");yellowball.hvalue=2;
 
 </script>
 
@@ -175,6 +223,8 @@ var yellowball=new ball("#yellowball");
 <img src="orangeball.jpg" id="orangeball" class="ball"/>
 <img src="blueball.jpg" id="blueball" class="ball"/>
 <img src="yellowball.jpg" id="yellowball" class="ball"/>
+
+<div id="scores">0</div>
 
 
 <table align="left" id="tbl1" class="table">
@@ -246,6 +296,7 @@ var yellowball=new ball("#yellowball");
 		<td><img src="rdarrow.jpg" id="brdarrow"/></td>
 	</tr>
 </table>
+<div id="wall"></div>
 <script>
   $("#bruarrow").click(function(){ 
    blueball.moveupright();
